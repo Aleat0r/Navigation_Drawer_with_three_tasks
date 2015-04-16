@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Navigation Drawer (camera/realm/custom ImageView)</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="views_array">
+        <item>Выбор галерея/камера</item>
+        <item>База данных Realm</item>
+        <item>Кастомный ImageView</item>
+    </string-array>
+    <string name="menu">Меню</string>
+    <string name="open_menu">Open</string>
+    <string name="close_menu">Close</string>
+</resources>
