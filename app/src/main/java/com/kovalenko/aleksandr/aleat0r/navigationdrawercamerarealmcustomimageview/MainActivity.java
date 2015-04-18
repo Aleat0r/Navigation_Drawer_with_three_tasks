@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.kovalenko.aleksandr.aleat0r.navigationdrawercamerarealmcustomimageview.Realm.RealmListFragment;
+import com.kovalenko.aleksandr.aleat0r.navigationdrawercamerarealmcustomimageview.customImageView.CustomImageViewFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -44,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
         DrawerList = (ListView) findViewById(R.id.left_drawer);
 
         //Задаем список пунктов меню для NavigationDrawer с помощью ArrayAdapter
-        DrawerList.setAdapter(new ArrayAdapter<String>(this,
+        DrawerList.setAdapter(new ArrayAdapter<>(this,
                 R.layout.drawer_list_item, viewsNames));
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
@@ -98,7 +99,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new RealmListFragment();
                 break;
             case 2:
-//                fragment = new ThirdFragment();
+                fragment = new CustomImageViewFragment();
                 break;
             default:
                 break;
