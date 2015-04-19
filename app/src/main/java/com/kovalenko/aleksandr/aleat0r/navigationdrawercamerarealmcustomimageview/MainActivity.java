@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.kovalenko.aleksandr.aleat0r.navigationdrawercamerarealmcustomimageview.CameraOrGallery.CameraOrGalleryFragment;
 import com.kovalenko.aleksandr.aleat0r.navigationdrawercamerarealmcustomimageview.Realm.RealmListFragment;
 import com.kovalenko.aleksandr.aleat0r.navigationdrawercamerarealmcustomimageview.customImageView.CustomImageViewFragment;
 
@@ -93,7 +94,7 @@ public class MainActivity extends ActionBarActivity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-//                fragment = new FirstFragment();
+                fragment = new CameraOrGalleryFragment();
                 break;
             case 1:
                 fragment = new RealmListFragment();

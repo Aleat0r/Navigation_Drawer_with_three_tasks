@@ -9,4 +9,5 @@
     <string name="menu">Меню</string>
     <string name="open_menu">Open</string>
     <string name="close_menu">Close</string>
+    <string name="click_on_picture">Нажмите на картинку</string>
 </resources>

@@ -11,7 +11,7 @@ public class CustomImageView extends ImageView {
 
     // Радиус закругления угла
     private float cornerRadius;
-    // Размер квадратного CustomImageView (посчитан в onMeasure)
+    // Размер стороны квадратного CustomImageView (посчитан в onMeasure)
     private int size;
 
     // Проверяем величину аргумента, если проходит, то устанавливаем значение радиуса
