@@ -12,9 +12,9 @@ import com.kovalenko.aleksandr.aleat0r.navigationdrawercamerarealmcustomimagevie
 
 public class CustomImageViewFragment extends Fragment implements View.OnClickListener{
 
-    CustomImageView customImageView;
-    float cornerRadius;
-    View view;
+    private CustomImageView customImageView;
+    private float cornerRadius;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

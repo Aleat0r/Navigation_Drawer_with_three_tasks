@@ -16,9 +16,6 @@
     <!--Ресурсы для пункта Выбор галерея/камера-->
     <string name="click_on_picture">Нажмите на картинку</string>
     <string name="dialogTitle">Добавить фотографию</string>
-    <string-array name="dialog_array">
-        <item>Сделать фотографию</item>
-        <item>Выбрать из галереи</item>
-        <item>Отмена</item>
-    </string-array>
+    <string name="button_take_photo">Сделать фотографию</string>
+    <string name="button_gallery">Выбрать из галереи</string>
 </resources>

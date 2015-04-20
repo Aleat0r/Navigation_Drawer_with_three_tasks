@@ -25,8 +25,8 @@ public class CameraOrGalleryFragment extends Fragment implements View.OnClickLis
 
     private static final int CAMERA_REQUEST_CODE = 1;
     private static final int GALLERY_REQUEST_CODE = 2;
-    ImageView imageView;
-    String photoPath;
+    private ImageView imageView;
+    private String photoPath;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,50 +49,45 @@ public class CameraOrGalleryFragment extends Fragment implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        // При нажатии по картинке вызываем этот метод
+        // При нажатии по картинке вызываем метод с диалогом
         selectImage();
     }
 
     private void selectImage() {
-        final CharSequence[] options = getResources().getStringArray(R.array.dialog_array);
-        // Создаем диалог
+         // Создаем диалог
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Задаем диалогу заголовок
         builder.setTitle(R.string.dialogTitle);
-        // Задаем диалогу пункты и обработчик нажатия на пункты
-        builder.setItems(options, new DialogInterface.OnClickListener() {
+        // Задаем диалогу пункт для выбора камеры и обработчик нажатия на него
+        builder.setPositiveButton(R.string.button_take_photo, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int item) {
-                if (options[item].equals(options[0]))
-                {
-                    // Создаём intent для вызова камеры
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    // Имя изображения и место куда его сохранить
-                    File file = new File(android.os.Environment.getExternalStorageDirectory(), String.valueOf(System.currentTimeMillis()) + ".jpg");
-                    // Сохраняем путь к изображению
-                    photoPath = file.getAbsolutePath();
-                    // Указываем, чтоб в директорию file был сохранен результат работы камеры
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                    // Отправляем intent с requestCode
-                    startActivityForResult(intent, CAMERA_REQUEST_CODE);
-                }
-                else if (options[item].equals(options[1]))
-                {
-                    // Вызываем галерею
-                    Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    // Отправляем intent с requestCode
-                    startActivityForResult(intent, GALLERY_REQUEST_CODE);
-
-                }
-                else if (options[item].equals(options[2])) {
-                    // Закрываем диалог
-                    dialog.dismiss();
-                }
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Создаём intent для вызова камеры
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                // Имя изображения и место куда его сохранить
+                File file = new File(android.os.Environment.getExternalStorageDirectory(), String.valueOf(System.currentTimeMillis()) + ".jpg");
+                // Сохраняем путь к изображению
+                photoPath = file.getAbsolutePath();
+                // Указываем, чтоб в директорию file был сохранен результат работы камеры
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+                // Отправляем intent с requestCode
+                startActivityForResult(intent, CAMERA_REQUEST_CODE);
+            }
+        });
+        // Задаем диалогу пункт для выбора галереи и обработчик нажатия на него
+        builder.setNegativeButton(R.string.button_gallery, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Вызываем галерею
+                Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                // Отправляем intent с requestCode
+                startActivityForResult(intent, GALLERY_REQUEST_CODE);
             }
         });
         // Вызываем диалог
         builder.show();
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
