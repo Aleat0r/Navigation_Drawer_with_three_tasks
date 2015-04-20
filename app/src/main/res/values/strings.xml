@@ -2,12 +2,23 @@
     <string name="app_name">Navigation Drawer (camera/realm/custom ImageView)</string>
     <string name="action_settings">Settings</string>
     <string-array name="views_array">
-        <item>Выбор галерея/камера</item>
-        <item>База данных Realm</item>
-        <item>Кастомный ImageView</item>
+        <item>Selecting gallery/camera</item>
+        <item>Database Realm</item>
+        <item>Custom ImageView</item>
     </string-array>
-    <string name="menu">Меню</string>
+    <string name="menu">Menu</string>
     <string name="open_menu">Open</string>
     <string name="close_menu">Close</string>
-    <string name="click_on_picture">Нажмите на картинку</string>
+
+    <!--Ресурсы для пунтка База данных Realm-->
+    <string name="no_data">No data</string>
+
+    <!--Ресурсы для пункта Выбор галерея/камера-->
+    <string name="click_on_picture">Click on picture</string>
+    <string name="dialogTitle">Add photo</string>
+    <string-array name="dialog_array">
+        <item>Take photo</item>
+        <item>Choose from gallery</item>
+        <item>Cancel</item>
+    </string-array>
 </resources>

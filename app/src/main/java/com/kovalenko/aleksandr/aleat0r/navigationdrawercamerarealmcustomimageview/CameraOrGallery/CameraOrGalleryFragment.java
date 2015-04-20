@@ -54,16 +54,16 @@ public class CameraOrGalleryFragment extends Fragment implements View.OnClickLis
     }
 
     private void selectImage() {
-        final CharSequence[] options = { "Сделать фотографию", "Выбрать из галереи","Отмена" };
+        final CharSequence[] options = getResources().getStringArray(R.array.dialog_array);
         // Создаем диалог
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Задаем диалогу заголовок
-        builder.setTitle("Добавить фотографию");
+        builder.setTitle(R.string.dialogTitle);
         // Задаем диалогу пункты и обработчик нажатия на пункты
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if (options[item].equals("Сделать фотографию"))
+                if (options[item].equals(options[0]))
                 {
                     // Создаём intent для вызова камеры
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -76,7 +76,7 @@ public class CameraOrGalleryFragment extends Fragment implements View.OnClickLis
                     // Отправляем intent с requestCode
                     startActivityForResult(intent, CAMERA_REQUEST_CODE);
                 }
-                else if (options[item].equals("Выбрать из галереи"))
+                else if (options[item].equals(options[1]))
                 {
                     // Вызываем галерею
                     Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -84,7 +84,7 @@ public class CameraOrGalleryFragment extends Fragment implements View.OnClickLis
                     startActivityForResult(intent, GALLERY_REQUEST_CODE);
 
                 }
-                else if (options[item].equals("Отмена")) {
+                else if (options[item].equals(options[2])) {
                     // Закрываем диалог
                     dialog.dismiss();
                 }
